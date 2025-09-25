@@ -2,8 +2,8 @@
     <div class="head flex jb ac">
         <img src="@/assets/logo.png" class="img48" @click="onLogoClick">
         <div class="flex ac">
-            <img src="@/assets/layout/lang.png" class="img52" @click="openPicker">
-            <div class="connect ml14 size24" v-if="address" v-filter:address="address"></div>
+            <!-- <img src="@/assets/layout/lang.png" class="img52" @click="openPicker"> -->
+            <div class="connect size24" v-if="address" v-filter:address="address"></div>
             <div class="connect ml14 size24" v-else>{{ $t('链接钱包') }}</div>
             <div class="ml20" @click="show=!show">
                 <img src="@/assets/layout/close.png" class="img48 animate__animated animate__rotateIn" v-if="show">
@@ -30,27 +30,27 @@
         </div>
     </VanPopup>
 
-    <CusPicker ref="picker" :title="$t('切换语言')" name="name" :list="langs" @change="pickerChange"></CusPicker>
+    <!-- <CusPicker ref="picker" :title="$t('切换语言')" name="name" :list="langs" @change="pickerChange"></CusPicker> -->
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRoute } from 'vue-router';
 
-import CusPicker from '@/components/CusPicker/index.vue'
+// import CusPicker from '@/components/CusPicker/index.vue'
 
-import { langs } from '@/locale'
+// import { langs } from '@/locale'
 import { routerReplace } from '@/router';
 
 import { t } from '@/locale'
 import { showToast } from 'vant';
-import { useAppStore } from '@/store';
+// import { useAppStore } from '@/store';
 
 import menus from '@/router/modules/menu'
 import { homePath } from '@/config/path';
 import { useDapp } from '@/hooks/useCommon';
 
-const appStore = useAppStore()
+// const appStore = useAppStore()
 
 const { address } = useDapp()
 
@@ -88,11 +88,11 @@ const onLogoClick = () => {
     }
 }
 
-const picker = ref()
-const openPicker = () => {
-    picker.value.open()
-}
-const pickerChange = (index: number) => appStore.setLocale(langs[index].lang)
+// const picker = ref()
+// const openPicker = () => {
+//     picker.value.open()
+// }
+// const pickerChange = (index: number) => appStore.setLocale(langs[index].lang)
 
 </script>
 

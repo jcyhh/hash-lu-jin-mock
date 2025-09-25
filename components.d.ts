@@ -8,7 +8,6 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    Countdown: typeof import('vue-amazing-ui')['Countdown']
     CusData: typeof import('./src/components/CusData/index.vue')['default']
     CusEmpty: typeof import('./src/components/CusEmpty/index.vue')['default']
     CusList: typeof import('./src/components/CusList/index.vue')['default']
