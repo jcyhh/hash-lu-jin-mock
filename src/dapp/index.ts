@@ -89,7 +89,7 @@ function createListener(){
     ethereum.on('accountsChanged', handlerAccountsChanged); // 监听账户切换
     ethereum.on('chainChanged', handlerChainChanged); // 监听网络切换
     initContract(); // 初始化合约
-    // checkLoginIn(); // 登入逻辑
+    checkLoginIn(); // 登入逻辑
 }
 
 /**

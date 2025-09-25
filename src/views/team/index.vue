@@ -5,7 +5,7 @@
 
         <div class="top">
             <img :src="userInfo?.level?.icon" class="level">
-            <div class="tag size24">新增业绩</div>
+            <div class="tag size24">{{ $t('新增业绩') }}</div>
             <div class="size46 fontP mainColor mt20">
                 <span v-filter="userInfo?.day_recharge_amount"></span>
                 USDT
@@ -21,29 +21,33 @@
                 </div>
                 <div class="flex1">
                     <div class="size32 bold">{{ userInfo?.level?.name || '--' }}</div>
-                    <div class="size24 gray mt10">当前等级</div>
+                    <div class="size24 gray mt10">{{ $t('当前等级') }}</div>
                 </div>
             </div>
             <div class="mainCard mt60 flex jb ac size26">
-                <div>团队撸金</div>
+                <div>{{ $t('团队撸金') }}</div>
                 <div class="bold">
-                    <span>100</span>
+                    <span v-filter="userInfo?.team_kpi"></span>
                     USDT
                 </div>
             </div>
             <div class="mainCard mt30 flex jb ac size26">
-                <div>小区撸金</div>
+                <div>{{ $t('小区撸金') }}</div>
                 <div class="bold">
-                    <span>100</span>
+                    <span v-filter="userInfo?.kpi"></span>
                     USDT
                 </div>
+            </div>
+            <div class="mainCard mt30 flex jb ac size26">
+                <div>{{ $t('小区订单数量') }}</div>
+                <div class="bold">{{ userInfo?.xq_order_num }}</div>
             </div>
         </div>
 
         <div class="flex mt60">
             <div class="mainTag flex ac">
                 <img src="@/assets/team/1.png" class="img38 mr10">
-                <div class="size32">社区列表</div>
+                <div class="size32">{{ $t('社区列表') }}</div>
             </div>
         </div>
 
@@ -57,7 +61,7 @@
                 </div>
                 <div class="flex jb size24 gray mt20">
                     <div v-filter:time="item.created_at"></div>
-                    <div>团队撸金</div>
+                    <div>{{ $t('团队撸金') }}</div>
                 </div>
             </div>
         </List>
@@ -66,10 +70,13 @@
 </template>
 
 <script setup lang="ts">
+import { updateUserInfo } from '@/api/common';
 import { useDapp } from '@/hooks/useCommon';
 import List from '@/modules/List/index.vue'
 
 const { userInfo } = useDapp()
+
+updateUserInfo()
 </script>
 
 <style lang="scss" scoped>

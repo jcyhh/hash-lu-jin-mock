@@ -16,6 +16,7 @@ export async function claim(amountNum:number | string){
     const useStore = useDappStore()
     try {
         const res:any = await post('/api/withdraws', {
+            ccy: 'balance',
             amount: amountNum,
             ...signInfo
         })

@@ -18,41 +18,34 @@
     <cus-list ref="list" api="/api/order" name="orders" :param="{ status: current + 1 }" v-slot="{ listData }">
         <div class="pl30 pr30">
             <div class="card" v-for="item in listData" :key="item.id">
-                <div class="flex jb ac">
-                    <div class="size28">{{ $t('收益') }}(USDT)</div>
-                    <Countdown :valueStyle="{
-                        fontSize: '16px',
-                        color: '#ED3C3E',
-                        border: '1px solid #ED3C3E',
-                        padding: '5px 10px',
-                        borderRadius: '10px',
-                        backgroundColor: 'rgba(237, 60, 62, 0.1)'
-                    }" :value="item.countdown * 1000" :future="false" format="HH:mm:ss" @finish="refresh"
-                        v-if="item.status == 1 && item.countdown >0" />
-                    <div class="done flex jc ac size24" v-else>{{ $t('已完成') }}</div>
+                <div class="flex jb">
+                    <div class="size28">{{ $t('已释放') }}(USDT)</div>
+                    <div>
+                        <div class="progress">
+                            <div class="progressBox"
+                                :style="{ width: `${Math.floor(computedDiv(item.release_day, item.days) * 10000) / 100}%` }">
+                            </div>
+                        </div>
+                        <div class="tr gray size24 mt24">{{ item.release_day }}/{{ item.days }}{{ $t('天') }}</div>
+                    </div>
+                    
                 </div>
                 <div class="flex ac mt16">
                     <img src="@/assets/usdt.png" class="img40 mr10">
-                    <div class="size46 bold" v-filter="item.current_profit"></div>
+                    <div class="size46 bold" v-filter="item.release_amount"></div>
                 </div>
-                <div class="mt22 size24 gray" v-filter:time="item.created_at"></div>
+                <div class="mt22 size24 gray">{{ item.created_at }}</div>
                 <div class="flex ac mt60">
                     <div class="flex1">
                         <span class="size26 mr10" v-filter="item.amount"></span>
-                        <span class="size24 green">+<span v-filter="item.order_token_amount"></span> {{ $t('排单币') }}</span>
                     </div>
                     <div class="flex1">
-                        <div class="progress">
-                            <div class="progressBox"
-                                :style="{ width: `${Math.floor(computedDiv(item.current_day, item.settlement_day) * 10000) / 100}%` }">
-                            </div>
-                        </div>
+                        <span class="size26 mr10" v-filter="item.day_amount"></span>
                     </div>
                 </div>
                 <div class="flex size24 gray mt14">
-                    <div class="flex1">{{ $t('价格') }}(USDT)</div>
-                    <div class="flex1">{{ $t('进度') }} {{ Math.floor(computedDiv(item.current_day, item.settlement_day) * 10000) /
-                        100 }}%</div>
+                    <div class="flex1">{{ $t('购买金额') }}(USDT)</div>
+                    <div class="flex1">{{ $t('每日释放') }}(USDT)</div>
                 </div>
             </div>
         </div>

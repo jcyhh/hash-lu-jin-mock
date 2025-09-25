@@ -58,6 +58,7 @@ export function computedMul(a:number|string, b:number|string) {
  * @returns {Number} a / b 保留两位小数
  */
 export function computedDiv(a:number|string, b:number|string) {
+    if(a==0)return 0
     var c, d, e = 0,
         f = 0;
     try {

@@ -27,23 +27,14 @@
                     </div>
                 </div>
             </div>
-            
         </div>
     </VanPopup>
 
     <CusPicker ref="picker" :title="$t('切换语言')" name="name" :list="langs" @change="pickerChange"></CusPicker>
-
-    <VanPopup style="background: transparent;" v-model:show="showName">
-        <cus-pop :title="$t('修改昵称')" @close="showName=false" @confirm="changeName">
-            <div class="flex">
-                <input type="text" v-model="nickname" :placeholder="$t('请输入昵称')" class="size28 flex1">
-            </div>
-        </cus-pop>
-    </VanPopup>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
 import { useRoute } from 'vue-router';
 
 import CusPicker from '@/components/CusPicker/index.vue'
@@ -52,29 +43,20 @@ import { langs } from '@/locale'
 import { routerReplace } from '@/router';
 
 import { t } from '@/locale'
-import { showSuccessToast, showToast } from 'vant';
-import { useAppStore, useDappStore } from '@/store';
+import { showToast } from 'vant';
+import { useAppStore } from '@/store';
 
 import menus from '@/router/modules/menu'
 import { homePath } from '@/config/path';
 import { useDapp } from '@/hooks/useCommon';
-import { storeToRefs } from 'pinia';
-import { upload } from '@/utils/request';
-import { changeUserInfo, updateUserInfo } from '@/api/common';
 
 const appStore = useAppStore()
-
-const { lang } = storeToRefs(appStore)
 
 const { address } = useDapp()
 
 const route = useRoute();
 
-const useApp = useDappStore()
-const { userInfo } = storeToRefs(useApp)
-
 const show = ref(false)
-const showName = ref(false)
 
 const jump = (path: string) => {
     if(!path)return showToast(t('待开放'))
@@ -110,29 +92,8 @@ const picker = ref()
 const openPicker = () => {
     picker.value.open()
 }
-const langName = computed(()=>langs.find(item=>item.lang==lang.value)?.name)
 const pickerChange = (index: number) => appStore.setLocale(langs[index].lang)
 
-const updateAvatar = async () => {
-    const res:any = await upload()
-    changeUserInfo({
-        avatar: res.url
-    }).then(()=>{
-        showSuccessToast(t('修改成功'))
-        updateUserInfo()
-    })
-}
-const nickname = ref()
-const changeName = () => {
-    if(!nickname.value)return showToast(t('请输入昵称'))
-    changeUserInfo({
-        nickname: nickname.value
-    }).then(()=>{
-        showName.value = false
-        showSuccessToast(t('修改成功'))
-        updateUserInfo()
-    })
-}
 </script>
 
 <style lang="scss" scoped>

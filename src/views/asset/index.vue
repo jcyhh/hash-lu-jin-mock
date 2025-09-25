@@ -3,7 +3,7 @@
 
     <div class="pl30 pr30">
         <div class="top">
-            <div class="tag size24">资产余额(USDT)</div>
+            <div class="tag size24">{{ $t('资产余额') }}(USDT)</div>
             <div class="flex jb ac mt10">
                 <div class="size60 fontP" v-filter="userInfo?.balance"></div>
                 <img src="@/assets/usdt.png" class="img52">
@@ -17,7 +17,7 @@
         <div class="flex mt60">
             <div class="mainTag flex ac">
                 <img src="@/assets/asset/3.png" class="img38 mr10">
-                <div class="size32">资产明细</div>
+                <div class="size32">{{ $t('资产明细') }}</div>
             </div>
         </div>
 
@@ -47,8 +47,11 @@
 import { computed, ref } from 'vue';
 import { routerPush } from '@/router';
 import { useDapp } from '@/hooks/useCommon';
+import { updateUserInfo } from '@/api/common';
 
 const { userInfo } = useDapp()
+
+updateUserInfo()
 
 const tabs = computed(()=>([
     {name:'USDT',value:1}

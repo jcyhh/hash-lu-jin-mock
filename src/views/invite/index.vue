@@ -6,35 +6,35 @@
     <div class="pl30 pr30 rel">
 
         <div class="flex jc">
-            <div class="title size40 bold">波场链哈希撸金</div>
+            <div class="title size40 bold">{{ $t('波场链哈希撸金') }}</div>
         </div>
         <div class="flex jc ac mt30">
             <div class="line"></div>
-            <div class="tc ml30 mr30 size26">分享并邀请好友</div>
+            <div class="tc ml30 mr30 size26">{{ $t('分享并邀请好友') }}</div>
             <div class="line"></div>
         </div>
 
-        <div class="tc mt60 fontS size60">开启你的探索之旅</div>
+        <div class="tc mt60 fontS size60">{{ $t('开启你的探索之旅') }}</div>
 
-        <div class="tc size28 fontP mt200">智能合约 安全稳定 自动秒返</div>
-        <div class="tc size28 fontP mt20">波场链上哈希 纯公正透明 永不跑路</div>
+        <div class="tc size28 fontP mt200">{{ $t('智能合约 安全稳定 自动秒返') }}</div>
+        <div class="tc size28 fontP mt20">{{ $t('波场链上哈希 纯公正透明 永不跑路') }}</div>
 
         <img src="@/assets/invite/1.png" class="pic1 mt40">
 
         <div class="desc mt40 flex jc ac">
             <div class="line"></div>
-            <div class="tc ml30 mr30 size26">分享并邀请好友</div>
+            <div class="tc ml30 mr30 size26">{{ $t('分享并邀请好友') }}</div>
             <div class="line"></div>
         </div>
 
         <div class="tc size60 fontP mt80">{{ userInfo?.referral_code || '--' }}</div>
 
-        <div class="size24 mt10 tc">邀请人数</div>
+        <div class="size24 mt10 tc">{{ $t('邀请人数') }}</div>
 
         <div class="flex jc mt30">
             <div class="copy flex ac" v-copy="userInfo?.referral_code">
                 <img src="@/assets/invite/2.png" class="img24 mr10">
-                <div class="size24 bold">复制</div>
+                <div class="size24 bold">{{ $t('复制') }}</div>
             </div>
         </div>
 
