@@ -1,0 +1,155 @@
+<template>
+    <div class="bg">
+        <Plasma></Plasma>
+    </div>
+    <div class="gap180"></div>
+    <div class="pl30 pr30 rel">
+
+        <div class="flex jc">
+            <div class="title size40 bold">波场链哈希撸金</div>
+        </div>
+        <div class="flex jc ac mt30">
+            <div class="line"></div>
+            <div class="tc ml30 mr30 size26">分享并邀请好友</div>
+            <div class="line"></div>
+        </div>
+
+        <div class="tc mt60 fontS size60">开启你的探索之旅</div>
+
+        <div class="tc size28 fontP mt200">智能合约 安全稳定 自动秒返</div>
+        <div class="tc size28 fontP mt20">波场链上哈希 纯公正透明 永不跑路</div>
+
+        <img src="@/assets/invite/1.png" class="pic1 mt40">
+
+        <div class="desc mt40 flex jc ac">
+            <div class="line"></div>
+            <div class="tc ml30 mr30 size26">分享并邀请好友</div>
+            <div class="line"></div>
+        </div>
+
+        <div class="tc size60 fontP mt80">{{ userInfo?.referral_code || '--' }}</div>
+
+        <div class="size24 mt10 tc">邀请人数</div>
+
+        <div class="flex jc mt30">
+            <div class="copy flex ac" v-copy="userInfo?.referral_code">
+                <img src="@/assets/invite/2.png" class="img24 mr10">
+                <div class="size24 bold">复制</div>
+            </div>
+        </div>
+
+        <div class="borderLine mt76"></div>
+
+        <div class="flex jb ac mt40 pl30 pr30">
+            <div class="size26 br lh40">{{ inviteUrl }}</div>
+            <img src="@/assets/invite/3.png" class="img56 ml36 flex0" v-copy="inviteUrl">
+        </div>
+
+        <div class="borderLine mt40"></div>
+    </div>
+    <div class="gap60"></div>
+</template>
+
+<script setup lang="ts">
+import { useDapp } from '@/hooks/useCommon';
+import { computed } from 'vue';
+import Plasma from '@/components/VueBits/Plasma.vue';
+
+const { userInfo } = useDapp()
+
+const inviteUrl = computed(()=>`${window.origin}?ref=${userInfo.value?.referral_code}`)
+</script>
+
+<style lang="scss" scoped>
+.bg{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.title{
+    border: 3px solid #FFFFFF;
+    padding: 0 30px;
+    height: 100px;
+    line-height: 100px;
+}
+.line{
+    width: 20px;
+    height: 1px;
+    background-color: #D9D9D9;
+}
+.pic1{
+    width: 100%;
+    height: 46px;
+}
+.desc{
+    border: 1px solid #FFFFFF33;
+    border-radius: 4px;
+    padding: 20px;
+}
+.copy{
+    background-color: #FFFFFF0F;
+    border-radius: 2px;
+    border: 1px solid #FFFFFF80;
+    height: 56px;
+    padding: 0 30px;
+}
+.borderLine{
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, #FFFFFF00, #FFFFFF, #FFFFFF00);
+}
+
+
+.invite{
+    width: 100%;
+    height: calc(100vh - 100px);
+    background-image: url("@/assets/invite/1.png");
+    background-size: cover;
+    padding-top: 150px;
+    .line{
+        width: 380px;
+        height: 10px;
+        background: linear-gradient(to right, $main-color 20%, rgba($color: #4FACFE00, $alpha: 0));
+    }
+}
+.bot{
+    width: 100vw;
+    height: 414px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    background: linear-gradient(#00131C, #000000);
+    padding: 70px 40px 60px 40px;
+    .line{
+        width: 100vw;
+        height: 4px;
+        background: linear-gradient(to right, rgba($color: #FFFFFF, $alpha: 0), rgba($color: #FFFFFF, $alpha: 1), rgba($color: #FFFFFF, $alpha: 0));
+        position: absolute;
+        top: -4px;
+        left: 0;
+        z-index: 1;
+    }
+    .tabBox{
+        width: 100vw;
+        height: 60px;
+        position: absolute;
+        top: -32px;
+        left: 0;
+        z-index: 2;
+        .tag{
+            min-width: 232px;
+            height: 60px;
+            border-radius: 30px;
+            border: 1px solid #FFFFFF;
+            background: linear-gradient(to right, #00A9FF, #4FACFE,#00A9FF );
+            font-size: 28px;
+            color: #000000;
+            font-weight: bold;
+        }
+    }
+    
+}
+</style>

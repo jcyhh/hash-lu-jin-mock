@@ -1,0 +1,68 @@
+.cusToast {
+    z-index: 5000 !important;
+}
+
+// .van-popup{
+//     background: transparent !important;
+// }
+
+.van-count-down{
+    color: #8C8C8C !important;
+}
+
+.van-loading__text{
+    color: #8C8C8C !important;
+}
+
+.van-loading{
+    color: #8C8C8C !important;
+}
+
+.van-pull-refresh__head{
+    color: #8C8C8C !important;
+}
+
+.van-list__finished-text{
+    color: #8C8C8C!important;
+}
+
+.progress-inner{
+    background-color: #A33E2A !important;
+}
+.progress-text{
+    color: #A33E2A !important;
+    font-weight: bold;
+}
+
+
+// picker组件覆盖样式
+$picker-bg: #0A0E17;
+.van-picker{
+    background-color: $picker-bg !important;
+    .van-picker__mask{
+        // $picker-bg 的RGBA值
+        background-image: linear-gradient(180deg, rgba($picker-bg, $alpha: 0.9), rgba($picker-bg, $alpha: 0.4)), linear-gradient(0deg, rgba($picker-bg, $alpha: 0.9), rgba($picker-bg, $alpha: 0.4)) !important;
+    }
+    .van-picker-column{
+        position: relative;
+        z-index: 3;
+    }
+    .van-picker__mask{
+        z-index: 4;
+    }
+    .van-picker-column__item{
+        color: #FFFFFF;
+    }
+    .van-picker-column__item--selected{
+        color: #FFFFFF !important;
+    }
+    .van-picker__toolbar{
+        display: none;
+    }
+}
+[class*=van-hairline]::after{
+    border: none !important;
+    background-color: #2D2D2D;
+    color: #FFFFFF !important;
+    border-radius: 30px;
+}
