@@ -9,8 +9,14 @@
                 <img src="@/assets/usdt.png" class="img52">
             </div>
             <div class="flex mt60">
-                <img src="@/assets/asset/1.png" class="img80 mr40" @click="routerPush('/recharge')">
-                <img src="@/assets/asset/2.png" class="img80" @click="routerPush('/withdraw')">
+                <div class="topBox flex ac mr30" @click="routerPush('/recharge')">
+                    <img src="@/assets/asset/1.png" class="img40 mr16">
+                    <div>{{ $t('充值') }}</div>
+                </div>
+                <div class="topBox flex ac" @click="routerPush('/withdraw')">
+                    <img src="@/assets/asset/2.png" class="img40 mr16">
+                    <div>{{ $t('提现') }}</div>
+                </div>
             </div>
         </div>
 
@@ -83,6 +89,12 @@ const current = ref(0)
         padding: 0 10px;
         border-radius: 4px;
         display: inline-block;
+    }
+    .topBox{
+        height: 80px;
+        border-radius: 4px;
+        border: 2px solid #FFFFFF80;
+        padding: 0 30px;
     }
 }
 .card{
