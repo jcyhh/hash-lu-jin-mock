@@ -24,7 +24,7 @@
             <div class="size24 bold mainColor ml30" @click="amount=userInfo?.balance">{{ $t('全部') }}</div>
         </div>
         
-        <div class="mainBtn mt60" v-scale v-delay="{fun:openpop}">{{ $t('提币') }}</div>
+        <div class="mainBtn mt60" v-scale v-delay="{fun:submit}">{{ $t('提币') }}</div>
 
     </div>
 
@@ -63,23 +63,23 @@ const submit = async () => {
     amount.value = ''
 }
 
-const openpop = () => {
-    const now = new Date();
-    const currentHour = now.getHours();
-    const isTime = currentHour >= 14 && currentHour < 19
+// const openpop = () => {
+    // const now = new Date();
+    // const currentHour = now.getHours();
+    // const isTime = currentHour >= 14 && currentHour < 19
 
-    if(isTime){
-        if(!amount.value || amount.value < 50){
-            tips.value = t('提现金额50U起提')
-            show.value = true
-        }else{
-            submit()
-        }
-    }else{
-        tips.value = t('现在是非提现时间，提现时间每天14:00----18:00，') + t('提现金额50U起提')
-        show.value = true
-    }
-}
+    // if(isTime){
+    //     if(!amount.value || amount.value < 50){
+    //         tips.value = t('提现金额50U起提')
+    //         show.value = true
+    //     }else{
+    //         submit()
+    //     }
+    // }else{
+    //     tips.value = t('现在是非提现时间，提现时间每天14:00----18:00，') + t('提现金额50U起提')
+    //     show.value = true
+    // }
+// }
 </script>
 
 <style lang="scss" scoped>
