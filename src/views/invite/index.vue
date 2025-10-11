@@ -6,7 +6,7 @@
     <div class="pl30 pr30 rel">
 
         <div class="flex jc">
-            <div class="title size60 fontS">{{ $t('波场链哈希撸金') }}</div>
+            <div class="title size60 fontS">迭代1000億沉香產業</div>
         </div>
         <div class="flex jc ac mt30">
             <div class="line"></div>
@@ -32,8 +32,8 @@
                 </div>
             </div>
             <div class="linearTxt size80 fontP">{{ userInfo?.referral_code || '--' }}</div>
-            <div class="linearTxt bold fontP size28 mt50">{{ $t('智能合约 安全稳定 自动秒返') }}</div>
-            <div class="linearTxt bold fontP size28 mt20">{{ $t('波场链上哈希 纯公正透明 永不跑路') }}</div>
+            <div class="linearTxt bold fontP size28 mt50">全球首個沉香產業</div>
+            <div class="linearTxt bold fontP size28 mt20">企業數字化升級改造</div>
         </div>
 
         <div class="tc mt82 size28 bold">{{ $t('邀请链接') }}</div>

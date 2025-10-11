@@ -1,6 +1,6 @@
 <template>
     <div class="head flex jb ac">
-        <img src="@/assets/logo.png" class="img48" @click="onLogoClick">
+        <img src="@/assets/logo.png" class="logo" @click="onLogoClick">
         <div class="flex ac">
             <!-- <img src="@/assets/layout/lang.png" class="img52" @click="openPicker"> -->
             <div class="connect size24" v-if="address" v-filter:address="address"></div>
@@ -106,8 +106,8 @@ const onLogoClick = () => {
     padding: 0 30px;
 
     .logo {
-        width: 250px;
-        height: 52px;
+        width: 120px;
+        height: 40px;
     }
 
     .lang{

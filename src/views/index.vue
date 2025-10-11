@@ -1,6 +1,6 @@
 <template>
     <div class="start flex jc ac">
-        <img src="@/assets/start.png" class="startImg animate__animated animate__zoomIn">
+        <img src="@/assets/start.png" class="startImg animate__animated animate__lightSpeedInLeft">
     </div>
     <div class="size28 mt30 grey tips animate__animated animate__fadeInUp" v-if="!ethereum">请安装 MateMask !</div>
 </template>
@@ -15,10 +15,11 @@ const { ethereum } = window as any
     height: 100vh;
     overflow: hidden;
     padding-bottom: 200px;
+    background: linear-gradient(#000000, #03250C);
 
     .startImg {
-        width: 308px;
-        height: 308px;
+        width: 300px;
+        height: 300px;
     }
 }
 .tips{

@@ -7,14 +7,14 @@
     <div class="rel">
         <div class="top">
             <div class="flex jc">
-                <div class="title size80 fontS">{{ $t('波场链哈希撸金') }}</div>
+                <div class="title size70 fontS">全球首個沉香產業</div>
             </div>
             <div class="flex jc mt30">
-                <div class="tc ml30 mr30 size26 topTag">{{ $t('加入波场哈希撸金') }} {{ $t('邀您共同创富') }}</div>
+                <div class="tc ml30 mr30 size26 topTag">核心代理第1次籌備會議</div>
             </div>
             
             <div class="mt50 flex jc">
-                <div class="size180 lh200 tc bold name fontS">{{ $t('哈希') }}<br>{{ $t('撸金') }}</div>
+                <div class="size180 lh200 tc bold name fontS">升級<br>改造</div>
             </div>
         </div>
 
