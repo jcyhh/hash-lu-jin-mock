@@ -16,15 +16,13 @@
 
     <VanPopup style="background: transparent;" v-model:show="show" position="right">
         <div class="pop flex col jb">
-            <div class="pl2 pt2 pr2 pb2">
-                <div class="menu pt60">
-                    <div class="item mb30 flex jb ac" :class="$route.path == item.redirect ? 'act' : ''" v-for="item in menus" :key="item.path" @click="jump(item.redirect)">
-                        <div class="flex ac">
-                            <img :src="$route.path == item.redirect ? item.meta.actIcon : item.meta.icon" class="img34 mr20">
-                            <div class="size28">{{ $t(item.meta.title) }}</div>
-                        </div>
-                        <van-icon name="arrow" />
+            <div class="menu pt60">
+                <div class="item mb30 flex jb ac" :class="$route.path == item.redirect ? 'act' : ''" v-for="item in menus" :key="item.path" @click="jump(item.redirect)">
+                    <div class="flex ac">
+                        <img :src="$route.path == item.redirect ? item.meta.actIcon : item.meta.icon" class="img34 mr20">
+                        <div class="size28">{{ $t(item.meta.title) }}</div>
                     </div>
+                    <van-icon name="arrow" />
                 </div>
             </div>
         </div>
@@ -122,7 +120,7 @@ const onLogoClick = () => {
     .connect{
         height: 56px;
         border-radius: 10px;
-        background: linear-gradient(to right, #AE1412, #D92522);
+        background: linear-gradient(to right, #1D6130, #068135);
         color: #FFFFFF;
         padding: 0 16px;
         line-height: 56px;
@@ -134,20 +132,9 @@ const onLogoClick = () => {
     height: 100vh;
     padding-top: 100px;
     .menu{
-        height: calc(100vh - 110px);
-        background: linear-gradient(120deg, #1D0000, #000000, #3C0000);
-        border: 1px solid transparent;
-        position: relative;
-        &::before {
-            content: "";
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            z-index: -1;
-            background: linear-gradient(to right, #FFFFFF, #000000);
-        }
+        height: calc(100vh - 100px);
+        background-color: #FFFFFF;
+        color: #000000;
     }
 
     .item{

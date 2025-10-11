@@ -75,7 +75,7 @@ const submit = async () => {
     font-size: 28px;
 }
 .tips{
-    color: #D92522;
+    color: #999999;
 }
 .address{
     width: 400px;

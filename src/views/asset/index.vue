@@ -1,19 +1,23 @@
 <template>
-    <div class="gap130"></div>
+    <div class="gap160"></div>
 
     <div class="pl30 pr30">
-        <div class="top">
-            <div class="tag size24">{{ $t('资产余额') }}(USDT)</div>
-            <div class="flex jb ac mt10">
-                <div class="size60 fontP" v-filter="userInfo?.balance"></div>
+        <div class="top mainTop">
+            <div class="titleBox flex ac">
+                <img src="@/assets/home/2.png" class="img32 mr10">
+                <div class="size32 fontP bold">{{ $t('资产') }}</div>
+            </div>
+            <div class="linearTxt size24 bold">{{ $t('资产余额') }}(USDT)</div>
+            <div class="flex jb ac mt30">
+                <div class="size60 fontP linearTxt" v-filter="userInfo?.balance"></div>
                 <img src="@/assets/usdt.png" class="img52">
             </div>
             <div class="flex mt60">
-                <div class="topBox flex ac mr30" @click="routerPush('/recharge')">
+                <div class="mainBtn flex ac mr30" @click="routerPush('/recharge')">
                     <img src="@/assets/asset/1.png" class="img40 mr16">
                     <div>{{ $t('充值') }}</div>
                 </div>
-                <div class="topBox flex ac" @click="routerPush('/withdraw')">
+                <div class="mainBtn flex ac" @click="routerPush('/withdraw')">
                     <img src="@/assets/asset/2.png" class="img40 mr16">
                     <div>{{ $t('提现') }}</div>
                 </div>
@@ -67,21 +71,6 @@ const current = ref(0)
 
 <style lang="scss" scoped>
 .top{
-    background: linear-gradient(-45deg, #3C0000, #000000, #3C0000);
-    position: relative;
-    border-radius: 4px;
-    padding: 40px 30px 60px 30px;
-    &::before{
-        content: "";
-        position: absolute; 
-        top: -1px;
-        left: -1px;
-        right: -1px;
-        bottom: -1px;
-        z-index: -1;
-        background: linear-gradient(-15deg, #D92522, #FFFFFF, #AE1412);
-        border-radius: 4px;
-    }
     .tag{
         height: 54px;
         line-height: 54px;

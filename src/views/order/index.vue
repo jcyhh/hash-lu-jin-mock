@@ -88,7 +88,7 @@ const tabsClick = (index: number) => {
     border-radius: 4px;
 }
 .act{
-    background: linear-gradient(to right, #AE1412, #D92522);
+    background: linear-gradient(to right, #1D6130, #068135);
 }
 .def{
     border: 1px solid #FFFFFF80;

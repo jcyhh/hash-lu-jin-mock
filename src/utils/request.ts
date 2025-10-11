@@ -47,7 +47,7 @@ service.interceptors.response.use(
         const code = error.status
         if (code == 401) {
             // 登录失效
-            logout()
+            // logout()
             return Promise.reject(new Error(error.response.data || 'Error'))
         } else {
             if (error.response.data) {

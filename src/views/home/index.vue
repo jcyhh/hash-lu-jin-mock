@@ -7,13 +7,12 @@
     <div class="rel">
         <div class="top">
             <div class="flex jc">
-                <div class="title size40 bold">{{ $t('波场链哈希撸金') }}</div>
+                <div class="title size80 fontS">{{ $t('波场链哈希撸金') }}</div>
             </div>
-            <div class="flex jc ac mt30">
-                <div class="line"></div>
-                <div class="tc ml30 mr30 size26">{{ $t('加入波场哈希撸金') }} {{ $t('邀您共同创富') }}</div>
-                <div class="line"></div>
+            <div class="flex jc mt30">
+                <div class="tc ml30 mr30 size26 topTag">{{ $t('加入波场哈希撸金') }} {{ $t('邀您共同创富') }}</div>
             </div>
+            
             <div class="mt50 flex jc">
                 <div class="size180 lh200 tc bold name fontS">{{ $t('哈希') }}<br>{{ $t('撸金') }}</div>
             </div>
@@ -25,23 +24,23 @@
             <img src="@/assets/home/1.png" class="img20">
         </div>
 
-        <div class="pl30 pr30 mt80">
-            <div class="flex jb ac">
-                <div class="tag flex ac">
-                    <img src="@/assets/home/2.png" class="img38 mr10">
-                    <div class="size32 fontP bold">{{ $t('投资') }}</div>
-                </div>
-                <div class="size24" @click="routerPush('/order')">{{ $t('查看订单') }}</div>
-            </div>
+        <div class="pl35 pr35 mt124">
 
             <div class="card mt60">
-                <div class="gap30"></div>
-                <div class="flex jc">
-                    <div class="price size28">{{ $t('投资价格') }}</div>
+                <div class="titleBox flex jb ac">
+                    <div class="flex ac">
+                        <img src="@/assets/home/2.png" class="img32 mr10">
+                        <div class="size32 fontP bold">{{ $t('投资') }}</div>
+                    </div>
+                    <div class="flex ac size24" @click="routerPush('/order')">
+                        <div class="size24 mr10">{{ $t('查看订单') }}</div>
+                        <van-icon name="arrow" />
+                    </div>
                 </div>
-                <div class="tc size46 bold mt30">
+                <div class="price size28 size46 bold">{{ $t('投资价格') }}</div>
+                <div class="size80 fontP bold mt30 price">
                     <span v-filter="price"></span> USDT</div>
-                <div class="mainBtn mt60" @click="submit">{{ $t('立即投资') }}</div>
+                <div class="mainBtn mt30" @click="submit">{{ $t('立即投资') }}</div>
             </div>
 
             <div class="flex jb ac mt80">
@@ -132,10 +131,10 @@ const submit = async () => {
     min-height: 800px;
     padding: 60px 30px 0 30px;
     .title{
-        border: 3px solid #FFFFFF;
         padding: 0 30px;
         height: 100px;
         line-height: 100px;
+        letter-spacing: 5px;
     }
     .line{
         width: 20px;
@@ -143,11 +142,13 @@ const submit = async () => {
         background-color: #D9D9D9;
     }
     .name{
-        background: linear-gradient(135deg, #D5A89E, #FFFFFF);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        color: transparent;
+        color: #FFFFFF;
+    }
+    .topTag{
+        display: inline-block;
+        padding: 10px 30px;
+        border-radius: 26px;
+        background: linear-gradient(to right, #148140, #114723);
     }
 }
 
@@ -165,15 +166,28 @@ const submit = async () => {
 }
 
 .card {
-    padding: 30px 30px 60px 30px;
-    border: 1px solid;
-    border-image: linear-gradient(-15deg, #D92522, #FFFFFF, #AE1412) 1;
+    padding: 96px 30px 40px 30px;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    position: relative;
 
     .price{
-        height: 60px;
-        border: 1px solid #FFFFFF33;
-        padding: 0 10px;
-        line-height: 60px;
+        background: linear-gradient(to right, #148140, #114723);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+    }
+
+    .titleBox{
+        width: 680px;
+        height: 100px;
+        background: linear-gradient(to right, #4A8F60, #1E6432);
+        padding: 0 30px;
+        position: absolute;
+        top: -44px;
+        left: -20px;
+        z-index: 1;
     }
 }
 

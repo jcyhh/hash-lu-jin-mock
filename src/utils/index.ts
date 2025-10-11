@@ -131,7 +131,7 @@ export function initNumber(value:number | bigint){
         }).format(num)
         text = numFormat == '0'?'0':numFormat
     }else{
-        text = '0'
+        text = '0.00'
     }
     return text
 }

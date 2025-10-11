@@ -6,7 +6,7 @@
     <div class="pl30 pr30 rel">
 
         <div class="flex jc">
-            <div class="title size40 bold">{{ $t('波场链哈希撸金') }}</div>
+            <div class="title size60 fontS">{{ $t('波场链哈希撸金') }}</div>
         </div>
         <div class="flex jc ac mt30">
             <div class="line"></div>
@@ -14,31 +14,31 @@
             <div class="line"></div>
         </div>
 
-        <div class="tc mt60 fontS size60">{{ $t('开启你的探索之旅') }}</div>
-
-        <div class="tc size28 fontP mt200">{{ $t('智能合约 安全稳定 自动秒返') }}</div>
-        <div class="tc size28 fontP mt20">{{ $t('波场链上哈希 纯公正透明 永不跑路') }}</div>
-
-        <img src="@/assets/invite/1.png" class="pic1 mt40">
-
-        <div class="desc mt40 flex jc ac">
-            <div class="line"></div>
-            <div class="tc ml30 mr30 size26">{{ $t('分享并邀请好友') }}</div>
-            <div class="line"></div>
-        </div>
-
-        <div class="tc size60 fontP mt80">{{ userInfo?.referral_code || '--' }}</div>
-
-        <div class="size24 mt10 tc">{{ $t('邀请人数') }}</div>
+        <div class="tc mt60 fontS bold size60">{{ $t('开启你的探索之旅') }}</div>
 
         <div class="flex jc mt30">
-            <div class="copy flex ac" v-copy="userInfo?.referral_code">
-                <img src="@/assets/invite/2.png" class="img24 mr10">
-                <div class="size24 bold">{{ $t('复制') }}</div>
-            </div>
+            <div class="tc ml30 mr30 size26 topTag">{{ $t('加入波场哈希撸金') }} {{ $t('邀您共同创富') }}</div>
         </div>
 
-        <div class="borderLine mt76"></div>
+        <div class="mainTop mt154">
+            <div class="titleBox flex ac">
+                <div class="size32 fontP bold">{{ $t('分享并邀请好友') }}</div>
+            </div>
+            <div class="flex jb ac">
+                <div class="linearTxt size46 bold">邀请码</div>
+                <div class="copy flex ac" v-copy="userInfo?.referral_code">
+                    <img src="@/assets/invite/2.png" class="img24 mr10">
+                    <div class="size24 bold linearTxt">{{ $t('复制') }}</div>
+                </div>
+            </div>
+            <div class="linearTxt size80 fontP">{{ userInfo?.referral_code || '--' }}</div>
+            <div class="linearTxt bold fontP size28 mt50">{{ $t('智能合约 安全稳定 自动秒返') }}</div>
+            <div class="linearTxt bold fontP size28 mt20">{{ $t('波场链上哈希 纯公正透明 永不跑路') }}</div>
+        </div>
+
+        <div class="tc mt82 size28 bold">{{ $t('邀请链接') }}</div>
+
+        <div class="borderLine mt40"></div>
 
         <div class="flex jb ac mt40 pl30 pr30">
             <div class="size26 br lh40">{{ inviteUrl }}</div>
@@ -69,10 +69,7 @@ const inviteUrl = computed(()=>`${window.origin}?ref=${userInfo.value?.referral_
     left: 0;
 }
 .title{
-    border: 3px solid #FFFFFF;
-    padding: 0 30px;
-    height: 100px;
-    line-height: 100px;
+    letter-spacing: 10px;
 }
 .line{
     width: 20px;
@@ -87,6 +84,12 @@ const inviteUrl = computed(()=>`${window.origin}?ref=${userInfo.value?.referral_
     border: 1px solid #FFFFFF33;
     border-radius: 4px;
     padding: 20px;
+}
+.topTag{
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 26px;
+    background: linear-gradient(to right, #148140, #114723);
 }
 .copy{
     background-color: #FFFFFF0F;

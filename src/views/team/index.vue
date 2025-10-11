@@ -3,42 +3,46 @@
 
     <div class="pl30 pr30">
 
-        <div class="top">
+        <div class="top mainTop">
+            <div class="titleBox flex ac">
+                <img src="@/assets/home/2.png" class="img32 mr10">
+                <div class="size32 fontP bold">{{ $t('社区') }}</div>
+            </div>
             <img :src="userInfo?.level?.icon" class="level">
-            <div class="tag size24">{{ $t('新增业绩') }}</div>
-            <div class="size46 fontP mainColor mt20">
+            <div class="tag size24 linearTxt size24 bold">{{ $t('新增业绩') }}</div>
+            <div class="size46 fontP linearTxt mt14">
                 <span v-filter="userInfo?.day_recharge_amount"></span>
                 USDT
             </div>
-            <div class="flex mt60">
+            <div class="flex mt48">
                 <div class="flex1">
-                    <div class="size32 bold" v-filter="userInfo?.team_count"></div>
+                    <div class="size32 bold black" v-filter="userInfo?.team_count"></div>
                     <div class="size24 gray mt10">{{ $t('总人数') }}</div>
                 </div>
                 <div class="flex1">
-                    <div class="size32 bold" v-filter="userInfo?.referral_count"></div>
+                    <div class="size32 bold black" v-filter="userInfo?.referral_count"></div>
                     <div class="size24 gray mt10">{{ $t('分享人数') }}</div>
                 </div>
                 <div class="flex1">
-                    <div class="size32 bold">{{ userInfo?.level?.name || '--' }}</div>
+                    <div class="size32 bold black">{{ userInfo?.level?.name || '--' }}</div>
                     <div class="size24 gray mt10">{{ $t('当前等级') }}</div>
                 </div>
             </div>
-            <div class="mainCard mt60 flex jb ac size26">
+            <div class="topCard mt50 flex jb ac size26" style="background: #068135;">
                 <div>{{ $t('团队撸金') }}</div>
                 <div class="bold">
                     <span v-filter="userInfo?.team_kpi"></span>
                     USDT
                 </div>
             </div>
-            <div class="mainCard mt30 flex jb ac size26">
+            <div class="topCard mt30 flex jb ac size26" style="background: #068135;">
                 <div>{{ $t('小区撸金') }}</div>
                 <div class="bold">
                     <span v-filter="userInfo?.kpi"></span>
                     USDT
                 </div>
             </div>
-            <div class="mainCard mt30 flex jb ac size26">
+            <div class="topCard mt30 flex jb ac size26" style="background: #068135;">
                 <div>{{ $t('小区订单数量') }}</div>
                 <div class="bold">{{ userInfo?.xq_order_num }}</div>
             </div>
@@ -57,7 +61,7 @@
             <div class="mainCard mb20" v-for="(item,index) in listData" :key="index">
                 <div class="flex jb size28 bold">
                     <div>{{ item.nickname }}</div>
-                    <div class="mainColor" v-filter="item.total_team_order_num"></div>
+                    <div v-filter="item.total_team_order_num"></div>
                 </div>
                 <div class="flex jb size24 gray mt20">
                     <div v-filter:time="item.created_at"></div>
@@ -100,21 +104,6 @@ updateUserInfo()
 }
 
 .top{
-    background: linear-gradient(-45deg, #3C0000, #000000, #3C0000);
-    position: relative;
-    border-radius: 4px;
-    padding: 40px 30px 60px 30px;
-    &::before{
-        content: "";
-        position: absolute;
-        top: -1px;
-        left: -1px;
-        right: -1px;
-        bottom: -1px;
-        z-index: -1;
-        background: linear-gradient(-15deg, #D92522, #FFFFFF, #AE1412);
-        border-radius: 4px;
-    }
     .tag{
         height: 54px;
         line-height: 54px;
@@ -128,7 +117,7 @@ updateUserInfo()
         position: absolute;
         top: -20px;
         right: 30px;
-        z-index: 1;
+        z-index: 2;
     }
 }
 .card{
