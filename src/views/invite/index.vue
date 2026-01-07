@@ -6,7 +6,7 @@
     <div class="pl30 pr30 rel">
 
         <div class="flex jc">
-            <div class="title size60 fontS">迭代1000億沉香產業</div>
+            <div class="title size60 fontS">外匯黃金</div>
         </div>
         <div class="flex jc ac mt30">
             <div class="line"></div>
@@ -17,7 +17,7 @@
         <div class="tc mt60 fontS bold size60">{{ $t('开启你的探索之旅') }}</div>
 
         <div class="flex jc mt30">
-            <div class="tc ml30 mr30 size26 topTag">{{ $t('加入波场哈希撸金') }} {{ $t('邀您共同创富') }}</div>
+            <div class="tc ml30 mr30 size26 topTag">外匯黃金{{ $t('邀您共同创富') }}</div>
         </div>
 
         <div class="mainTop mt154">
@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="linearTxt size80 fontP">{{ userInfo?.referral_code || '--' }}</div>
-            <div class="linearTxt bold fontP size28 mt50">全球首個沉香產業</div>
+            <div class="linearTxt bold fontP size28 mt50">外匯黃金</div>
             <div class="linearTxt bold fontP size28 mt20">企業數字化升級改造</div>
         </div>
 
@@ -89,7 +89,8 @@ const inviteUrl = computed(()=>`${window.origin}?ref=${userInfo.value?.referral_
     display: inline-block;
     padding: 10px 30px;
     border-radius: 26px;
-    background: linear-gradient(to right, #148140, #114723);
+    background: linear-gradient(to right, #F9E0B7, #E8B373);
+    color: #000000;
 }
 .copy{
     background-color: #FFFFFF0F;

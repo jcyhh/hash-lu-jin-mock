@@ -16,35 +16,35 @@
             </div>
             <div class="flex mt48">
                 <div class="flex1">
-                    <div class="size32 bold black" v-filter="userInfo?.team_count"></div>
+                    <div class="size32 bold" v-filter="userInfo?.team_count"></div>
                     <div class="size24 gray mt10">{{ $t('总人数') }}</div>
                 </div>
                 <div class="flex1">
-                    <div class="size32 bold black" v-filter="userInfo?.referral_count"></div>
+                    <div class="size32 bold" v-filter="userInfo?.referral_count"></div>
                     <div class="size24 gray mt10">{{ $t('分享人数') }}</div>
                 </div>
                 <div class="flex1">
-                    <div class="size32 bold black">{{ userInfo?.level?.name || '--' }}</div>
+                    <div class="size32 bold">{{ userInfo?.level?.name || '--' }}</div>
                     <div class="size24 gray mt10">{{ $t('当前等级') }}</div>
                 </div>
             </div>
-            <div class="topCard mt50 flex jb ac size26" style="background: #068135;">
+            <div class="topCard mt50 flex jb ac size26">
                 <div>{{ $t('团队撸金') }}</div>
                 <div class="bold">
                     <span v-filter="userInfo?.team_kpi"></span>
                     USDT
                 </div>
             </div>
-            <div class="topCard mt30 flex jb ac size26" style="background: #068135;">
+            <div class="topCard mt30 flex jb ac size26">
                 <div>{{ $t('小区撸金') }}</div>
                 <div class="bold">
                     <span v-filter="userInfo?.kpi"></span>
                     USDT
                 </div>
             </div>
-            <div class="topCard mt30 flex jb ac size26" style="background: #068135;">
+            <div class="topCard mt30 flex jb ac size26">
                 <div>{{ $t('小区订单数量') }}</div>
-                <div class="bold">{{ userInfo?.xq_order_num }}</div>
+                <div class="bold">{{ userInfo?.xq_order_num || 0 }}</div>
             </div>
         </div>
 

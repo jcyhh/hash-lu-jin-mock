@@ -14,11 +14,11 @@
             </div>
             <div class="flex mt60">
                 <div class="mainBtn flex ac mr30" @click="routerPush('/recharge')">
-                    <img src="@/assets/asset/1.png" class="img40 mr16">
+                    <!-- <img src="@/assets/asset/1.png" class="img40 mr16"> -->
                     <div>{{ $t('充值') }}</div>
                 </div>
                 <div class="mainBtn flex ac" @click="routerPush('/withdraw')">
-                    <img src="@/assets/asset/2.png" class="img40 mr16">
+                    <!-- <img src="@/assets/asset/2.png" class="img40 mr16"> -->
                     <div>{{ $t('提现') }}</div>
                 </div>
             </div>

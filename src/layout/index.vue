@@ -107,7 +107,7 @@ const onLogoClick = () => {
 
     .logo {
         width: 120px;
-        height: 40px;
+        height: 48px;
     }
 
     .lang{
@@ -120,8 +120,8 @@ const onLogoClick = () => {
     .connect{
         height: 56px;
         border-radius: 10px;
-        background: linear-gradient(to right, #1D6130, #068135);
-        color: #FFFFFF;
+        background: linear-gradient(to right, #F9E0B7, #E8B373);
+        color: #000000;
         padding: 0 16px;
         line-height: 56px;
     }
@@ -133,8 +133,8 @@ const onLogoClick = () => {
     padding-top: 100px;
     .menu{
         height: calc(100vh - 100px);
-        background-color: #FFFFFF;
-        color: #000000;
+        background-color: #1A1A1A;
+        color: #6D6D6D;
     }
 
     .item{

@@ -1,4 +1,4 @@
-$main-color: #068135; // 主色
+$main-color: #F9E0B7; // 主色
 $yellow: #F7931A;
 $green: #068135;
 $red: #D92522;
@@ -100,7 +100,7 @@ body{
     width: 100%;
     border-radius: 10px;
     background-color: $main-color;
-    color: #FFFFFF;
+    color: #000000;
     font-size: 28px;
     text-align: center;
     line-height: 88px;
@@ -183,11 +183,11 @@ body{
 .mainTop {
     padding: 96px 30px 40px 30px;
     border-radius: 4px;
-    background-color: #FFFFFF;
+    background-color: #1A1A1A;
     position: relative;
 
     .linearTxt{
-        background: linear-gradient(to right, #148140, #114723);
+        background: linear-gradient(to right, #F9E0B7, #E8B373);
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -197,7 +197,8 @@ body{
     .titleBox{
         width: 680px;
         height: 100px;
-        background: linear-gradient(to right, #1E6432, #4A8F60);
+        background: linear-gradient(to right, #F9E0B7, #E8B373);
+        color: #000000;
         padding: 0 30px;
         position: absolute;
         top: -44px;
@@ -206,7 +207,8 @@ body{
     }
 
     .topCard{
-        background: linear-gradient(to right, #1E6432, #4A8F60);
+        background: linear-gradient(to right, #F9E0B7, #E8B373);
         padding: 26px 30px;
+        color: #000000;
     }
 }

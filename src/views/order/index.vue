@@ -88,7 +88,8 @@ const tabsClick = (index: number) => {
     border-radius: 4px;
 }
 .act{
-    background: linear-gradient(to right, #1D6130, #068135);
+    background: linear-gradient(to right, #F9E0B7, #E8B373);
+    color: #000000;
 }
 .def{
     border: 1px solid #FFFFFF80;
@@ -98,7 +99,7 @@ const tabsClick = (index: number) => {
 .card {
     margin-bottom: 20px;
     padding: 40px;
-    border: 1px solid #FFFFFF;
+    border: 1px solid rgba($color: #FFFFFF, $alpha: 0.5);
     border-radius: 4px;
     position: relative;
 

@@ -137,7 +137,7 @@ async function checkLoginIn(){
         if(path == loginPath){
             setTimeout(()=>{
                 router.replace(homePath)
-            },1000)
+            },1500)
         }
         updateUserInfo()
     }else{

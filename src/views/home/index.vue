@@ -1,5 +1,4 @@
 <template>
-    <img src="@/assets/home/bg.png" class="bg">
     <div class="gap100"></div>
     <div class="banner">
         <Plasma></Plasma>
@@ -7,7 +6,7 @@
     <div class="rel">
         <div class="top">
             <div class="flex jc">
-                <div class="title size70 fontS">全球首個沉香產業</div>
+                <div class="title size70 fontS">外匯黃金</div>
             </div>
             <div class="flex jc mt30">
                 <div class="tc ml30 mr30 size26 topTag">核心代理第1次籌備會議</div>
@@ -72,6 +71,7 @@
             </div>
         </div>
     </div>
+    <div class="gap100"></div>
 
 </template>
 
@@ -148,14 +148,15 @@ const submit = async () => {
         display: inline-block;
         padding: 10px 30px;
         border-radius: 26px;
-        background: linear-gradient(to right, #148140, #114723);
+        background: linear-gradient(to right, #F9E0B7, #E8B373);
+        color: #000000;
     }
 }
 
 .homeNotice {
     height: 88px;
     padding: 0 30px;
-    border: 1px solid #FFFFFF;
+    border: 1px solid rgba($color: #FFFFFF, $alpha: 0.4);
 }
 
 .tag{
@@ -168,11 +169,11 @@ const submit = async () => {
 .card {
     padding: 96px 30px 40px 30px;
     border-radius: 4px;
-    background-color: #FFFFFF;
+    background-color: #1A1A1A;
     position: relative;
 
     .price{
-        background: linear-gradient(to right, #148140, #114723);
+        background: linear-gradient(to right, #F9E0B7, #E8B373);
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -182,12 +183,13 @@ const submit = async () => {
     .titleBox{
         width: 680px;
         height: 100px;
-        background: linear-gradient(to right, #4A8F60, #1E6432);
+        background: linear-gradient(to right, #F9E0B7, #E8B373);
         padding: 0 30px;
         position: absolute;
         top: -44px;
         left: -20px;
         z-index: 1;
+        color: #000000;
     }
 }
 
