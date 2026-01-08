@@ -13,7 +13,7 @@
             </div>
             
             <div class="mt50 flex jc">
-                <div class="size180 lh200 tc bold name fontS">升級<br>改造</div>
+                <div class="size180 lh200 tc bold name fontS">穩定<br>理財</div>
             </div>
         </div>
 
