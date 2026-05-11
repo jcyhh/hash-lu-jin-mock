@@ -17,3 +17,5 @@ export const getWithdrawAddress = async () => await get('/api/users/my/recharge_
 
 // 提币手续费
 export const getWithdrawFee= async () => await get('/api/withdraws/fee')
+
+export const cancelOrder= async (data:any) => await post(`/api/order/${data}/cancel`)

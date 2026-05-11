@@ -28,11 +28,13 @@
                         </div>
                         <div class="tr gray size24 mt24">{{ item.release_day }}/{{ item.days }}{{ $t('天') }}</div>
                     </div>
-                    
                 </div>
-                <div class="flex ac mt16">
-                    <img src="@/assets/usdt.png" class="img40 mr10">
-                    <div class="size46 bold" v-filter="item.release_amount"></div>
+                <div class="flex jb ac mt20">
+                    <div class="flex ac">
+                        <img src="@/assets/usdt.png" class="img40 mr10">
+                        <div class="size46 bold" v-filter="0"></div>
+                    </div>
+                    <div class="cancelBtn" @click="openPop(item.id)" v-if="current==0">{{ $t('撤单') }}</div>
                 </div>
                 <div class="mt22 size24 gray">{{ item.created_at }}</div>
                 <div class="flex ac mt60">
@@ -51,22 +53,47 @@
         </div>
     </cus-list>
 
+    <van-popup v-model:show="show" style="background-color: transparent;">
+        <cus-pop :title="$t('提示')" @close="show=false" @confirm="confirm">
+            <div class="size26 lh45" style="opacity: 0.8;">{{ $t('确定要撤单吗？') }}</div>
+        </cus-pop>
+    </van-popup>
 </template>
 
 <script setup lang="ts">
 import { computedDiv } from '@/utils'
 import { ref } from 'vue'
+import CusPop from '@/components/CusPop/index.vue'
+import { cancelOrder } from '@/api/order'
+import { showSuccessToast } from 'vant'
+import { t } from '@/locale'
 
 const current = ref(0)
 
 const list = ref()
 
+const show = ref(false)
+
 const refresh = () => list.value?.refresh()
+
+const currentId = ref()
+const openPop = (id:any) => {
+    currentId.value = id
+    show.value = true
+}
 
 const tabsClick = (index: number) => {
     if (current.value == index) return
     current.value = index
     refresh()
+}
+
+const confirm = () => {
+    cancelOrder(currentId.value).then(()=>{
+        showSuccessToast(t('操作成功'))
+        refresh()
+        show.value = false
+    })
 }
 </script>
 
@@ -133,6 +160,19 @@ const tabsClick = (index: number) => {
             border-radius: 6px;
             background-color: $main-color;
         }
+    }
+
+    .cancelBtn{
+        height: 58px;
+        padding: 0 30px;
+        border-radius: 10px;
+        background-color: $main-color;
+        color: #000000;
+        font-size: 28px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 </style>

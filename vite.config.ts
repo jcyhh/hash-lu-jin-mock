@@ -20,7 +20,7 @@ export default defineConfig({
     base: '/h5/',
     server: {
         host: '0.0.0.0',
-        port: 5174,
+        port: 5176,
         strictPort: true
     },
     plugins: [

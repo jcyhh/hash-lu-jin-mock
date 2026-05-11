@@ -29,7 +29,7 @@
     </div>
 
     <van-popup v-model:show="show" style="background-color: transparent;">
-        <cus-pop title="提示" @close="show=false">
+        <cus-pop :title="$t('提示')" @close="show=false">
             <div class="size26 lh45" style="opacity: 0.8;">{{ tips }}</div>
         </cus-pop>
     </van-popup>
