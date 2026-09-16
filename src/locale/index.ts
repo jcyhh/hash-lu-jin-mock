@@ -37,7 +37,7 @@ export const langs = [
     // { name: 'Indonesian', lang: 'id', value: 'id' }, // 印尼语
     // { name: 'Español', lang: 'es', value: 'es' }, // 西班牙语
     // { name: 'Türkçe', lang: 'tr', value: 'tr' }, // 土耳其语
-    { name: '繁体中文', lang: 'hk', value: 'zh-HK' }, // 繁体中文
+    { name: '繁体中文', lang: 'hk', value: 'zh-Hant' }, // 繁体中文
     { name: '简体中文', lang: 'zh', value: 'zh-Hans' }, // 简体中文
     // { name: 'Tiếng Việt', lang: 'vi', value: 'vi' }, // 越南
     // { name: 'ภาษาไทย', lang: 'th', value: 'th' } // 泰国
@@ -46,8 +46,8 @@ export const langs = [
 // 获取当前请求头要传的值
 export function getHeaderLang(): string {
     let lang = getLang()
-    const langInfo = langs.find( item => item.lang == lang )!
-    return langInfo.value
+    const langInfo = langs.find( item => item.lang == lang )
+    return langInfo?.value || 'zh-Hans'
 }
 
 export const i18n = createI18n({

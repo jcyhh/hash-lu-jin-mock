@@ -25,7 +25,14 @@ export const delRef = (): void => localStorage.removeItem(refKey)
 
 // 存储Token
 export const setToken = (data: string): void => localStorage.setItem(tokenKey, data)
-export const getToken = (): string => localStorage.getItem(tokenKey)||''
+export const getToken = (): string => {
+    const token = localStorage.getItem(tokenKey) || ''
+    if (token === 'token') {
+        localStorage.removeItem(tokenKey)
+        return ''
+    }
+    return token
+}
 export const delToken = (): void => localStorage.removeItem(tokenKey)
 
 

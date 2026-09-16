@@ -7,8 +7,8 @@ import modulesRoutes from '@/modules'
 
 export default [
     {
-        path:'/', // 启动
-        component: () => import('@/views/index.vue')
+        path:'/', // 账号登录
+        component: () => import('@/views/login/index.vue')
     },
     {
         path:'/recharge',
@@ -21,6 +21,18 @@ export default [
     {
         path:'/transfer',
         component: () => import('@/views/asset/transfer.vue')
+    },
+    {
+        path:'/login',
+        redirect: '/'
+    },
+    {
+        path:'/register',
+        component: () => import('@/views/login/index.vue')
+    },
+    {
+        path:'/:pathMatch(.*)*',
+        redirect: '/'
     },
     // 一级页面
     ...menus,

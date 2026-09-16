@@ -6,18 +6,18 @@
     <div class="pl30 pr30 rel">
 
         <div class="flex jc">
-            <div class="title size60 fontS">外匯黃金</div>
+            <div class="title size60">無界</div>
         </div>
         <div class="flex jc ac mt30">
             <div class="line"></div>
-            <div class="tc ml30 mr30 size26">{{ $t('分享并邀请好友') }}</div>
+            <div class="tc ml30 mr30 size26">Boundless</div>
             <div class="line"></div>
         </div>
 
-        <div class="tc mt60 fontS bold size60">{{ $t('开启你的探索之旅') }}</div>
+        <div class="tc mt60 bold size60">{{ $t('开启你的探索之旅') }}</div>
 
         <div class="flex jc mt30">
-            <div class="tc ml30 mr30 size26 topTag">外匯黃金{{ $t('邀您共同创富') }}</div>
+            <div class="tc ml30 mr30 size26 topTag">無界Boundless{{ $t('邀您共同创富') }}</div>
         </div>
 
         <div class="mainTop mt154">
@@ -25,15 +25,15 @@
                 <div class="size32 fontP bold">{{ $t('分享并邀请好友') }}</div>
             </div>
             <div class="flex jb ac">
-                <div class="linearTxt size46 bold">邀请码</div>
+                <div class="size46 bold">邀请码</div>
                 <div class="copy flex ac" v-copy="userInfo?.referral_code">
                     <img src="@/assets/invite/2.png" class="img24 mr10">
                     <div class="size24 bold linearTxt">{{ $t('复制') }}</div>
                 </div>
             </div>
             <div class="linearTxt size80 fontP">{{ userInfo?.referral_code || '--' }}</div>
-            <div class="linearTxt bold fontP size28 mt50">外匯黃金</div>
-            <div class="linearTxt bold fontP size28 mt20">企業數字化升級改造</div>
+            <div class="bold fontP size28 mt50">外匯黃金</div>
+            <div class="bold fontP size28 mt20">企業數字化升級改造</div>
         </div>
 
         <div class="tc mt82 size28 bold">{{ $t('邀请链接') }}</div>
@@ -89,8 +89,8 @@ const inviteUrl = computed(()=>`${window.origin}?ref=${userInfo.value?.referral_
     display: inline-block;
     padding: 10px 30px;
     border-radius: 26px;
-    background: linear-gradient(to right, #F9E0B7, #E8B373);
-    color: #000000;
+    background: linear-gradient(to right, #00D8FF, #D400FF);
+    color: #FFFFFF;
 }
 .copy{
     background-color: #FFFFFF0F;

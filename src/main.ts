@@ -51,8 +51,9 @@ app.use(router)
 /**
  * Dapp
  */
-import { init } from '@/dapp'
-router.isReady().then(() => init())
+// 演示项目不初始化钱包、合约或账户/网络监听。
+// import { init } from '@/dapp'
+// router.isReady().then(() => init())
 
 /**
  * 全局组件

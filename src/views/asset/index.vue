@@ -7,9 +7,9 @@
                 <img src="@/assets/home/2.png" class="img32 mr10">
                 <div class="size32 fontP bold">{{ $t('资产') }}</div>
             </div>
-            <div class="linearTxt size24 bold">{{ $t('资产余额') }}(USDT)</div>
+            <div class="size24 bold">{{ $t('资产余额') }}(USDT)</div>
             <div class="flex jb ac mt30">
-                <div class="size60 fontP linearTxt" v-filter="userInfo?.balance"></div>
+                <div class="size60 fontP" v-filter="userInfo?.balance"></div>
                 <img src="@/assets/usdt.png" class="img52">
             </div>
             <div class="flex mt60">

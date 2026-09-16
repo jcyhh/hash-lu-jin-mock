@@ -10,7 +10,7 @@
         </div>
         <!-- <van-swipe class="banner" :show-indicators="false" :autoplay="4000" @change="$event=>bannerCurrent=$event">
             <van-swipe-item v-for="(item,index) in 3" :key="index">
-                <img src="@/assets/mock/banner.png" class="banner">
+                <img src="@/assets/mock/banner.webp" class="banner">
             </van-swipe-item>
         </van-swipe>
         <div class="dots flex ac jc">

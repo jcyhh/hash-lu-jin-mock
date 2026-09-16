@@ -3,8 +3,10 @@
         <img src="@/assets/logo.png" class="logo" @click="onLogoClick">
         <div class="flex ac">
             <!-- <img src="@/assets/layout/lang.png" class="img52" @click="openPicker"> -->
+            <!-- 演示项目：隐藏钱包地址和连接钱包入口。
             <div class="connect size24" v-if="address" v-filter:address="address"></div>
             <div class="connect ml14 size24" v-else>{{ $t('链接钱包') }}</div>
+            -->
             <div class="ml20" @click="show=!show">
                 <img src="@/assets/layout/close.png" class="img48 animate__animated animate__rotateIn" v-if="show">
                 <img src="@/assets/layout/open.png" class="img48 " v-else>
@@ -21,6 +23,13 @@
                     <div class="flex ac">
                         <img :src="$route.path == item.redirect ? item.meta.actIcon : item.meta.icon" class="img34 mr20">
                         <div class="size28">{{ $t(item.meta.title) }}</div>
+                    </div>
+                    <van-icon name="arrow" />
+                </div>
+                <div class="item mb30 flex jb ac" @click="openLink">
+                    <div class="flex ac">
+                        <img src="@/assets/layout/kefu.png" class="img34 mr20">
+                        <div class="size28">客服</div>
                     </div>
                     <van-icon name="arrow" />
                 </div>
@@ -47,6 +56,7 @@ import { showToast } from 'vant';
 import menus from '@/router/modules/menu'
 import { homePath } from '@/config/path';
 import { useDapp } from '@/hooks/useCommon';
+import { initAddress } from '@/utils';
 
 // const appStore = useAppStore()
 
@@ -70,6 +80,8 @@ const jump = (path: string) => {
         }
     }, 300);
 }
+
+const openLink = () => location.href = `https://chat.happyboundless.com/chat/index?noCanClose=1&token=16f4fd92c8e0c070300428ce32490bda&nickName=${initAddress(address.value)}`
 
 const onLogoClick = () => {
     if (show.value) {
@@ -106,7 +118,7 @@ const onLogoClick = () => {
     padding: 0 30px;
 
     .logo {
-        width: 120px;
+        width: 116px;
         height: 48px;
     }
 
@@ -120,8 +132,8 @@ const onLogoClick = () => {
     .connect{
         height: 56px;
         border-radius: 10px;
-        background: linear-gradient(to right, #F9E0B7, #E8B373);
-        color: #000000;
+        background: linear-gradient(to right, #00D8FF, #D400FF);
+        color: #FFFFFF;
         padding: 0 16px;
         line-height: 56px;
     }

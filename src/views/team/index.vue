@@ -10,7 +10,7 @@
             </div>
             <img :src="userInfo?.level?.icon" class="level">
             <div class="tag size24 linearTxt size24 bold">{{ $t('新增业绩') }}</div>
-            <div class="size46 fontP linearTxt mt14">
+            <div class="size46 fontP mt14">
                 <span v-filter="userInfo?.day_recharge_amount"></span>
                 USDT
             </div>
@@ -28,21 +28,21 @@
                     <div class="size24 gray mt10">{{ $t('当前等级') }}</div>
                 </div>
             </div>
-            <div class="topCard mt50 flex jb ac size26">
+            <div class="cell mt50 flex jb ac size26">
                 <div>{{ $t('团队撸金') }}</div>
                 <div class="bold">
                     <span v-filter="userInfo?.team_kpi"></span>
                     USDT
                 </div>
             </div>
-            <div class="topCard mt30 flex jb ac size26">
+            <div class="cell mt30 flex jb ac size26">
                 <div>{{ $t('小区撸金') }}</div>
                 <div class="bold">
                     <span v-filter="userInfo?.kpi"></span>
                     USDT
                 </div>
             </div>
-            <div class="topCard mt30 flex jb ac size26">
+            <div class="cell mt30 flex jb ac size26">
                 <div>{{ $t('小区订单数量') }}</div>
                 <div class="bold">{{ userInfo?.xq_order_num || 0 }}</div>
             </div>
@@ -101,6 +101,12 @@ updateUserInfo()
     width: 20px;
     height: 1px;
     background-color: #D9D9D9;
+}
+
+.cell{
+    background-color: #FFFFFF1A;
+    height: 88px;
+    padding: 0 30px;
 }
 
 .top{

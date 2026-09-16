@@ -11,15 +11,6 @@ body {
     -webkit-tap-highlight-color: transparent;
 }
 @font-face {
-    font-family: 'fontS';
-    src: url('@/assets/font/SOURCEHANSERIFCN-HEAVY.OTF') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-.fontS{
-    font-family: 'fontS' !important;
-}
-@font-face {
     font-family: 'fontP';
     src: url('@/assets/font/poppins.woff2') format('woff2');
     font-weight: normal;

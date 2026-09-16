@@ -115,8 +115,8 @@ const confirm = () => {
     border-radius: 4px;
 }
 .act{
-    background: linear-gradient(to right, #F9E0B7, #E8B373);
-    color: #000000;
+    background: linear-gradient(to right, #00D8FF, #D400FF);
+    color: #FFFFFF;
 }
 .def{
     border: 1px solid #FFFFFF80;

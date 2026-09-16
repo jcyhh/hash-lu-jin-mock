@@ -1,19 +1,16 @@
 <template>
     <div class="gap100"></div>
-    <div class="banner">
+    <!-- <div class="banner">
         <Plasma></Plasma>
-    </div>
+    </div> -->
+    <img src="@/assets/home/bg.webp" class="bg">
     <div class="rel">
         <div class="top">
             <div class="flex jc">
-                <div class="title size70 fontS">外匯黃金</div>
+                <div class="size180 lh200 tc bold name">無界</div>
             </div>
-            <div class="flex jc mt30">
+            <div class="flex jc mt100">
                 <div class="tc ml30 mr30 size26 topTag">核心代理第1次籌備會議</div>
-            </div>
-            
-            <div class="mt50 flex jc">
-                <div class="size180 lh200 tc bold name fontS">穩定<br>理財</div>
             </div>
         </div>
 
@@ -36,8 +33,8 @@
                         <van-icon name="arrow" />
                     </div>
                 </div>
-                <div class="price size28 size46 bold">{{ $t('投资价格') }}</div>
-                <div class="size80 fontP bold mt30 price">
+                <div class="size28 size46 bold">{{ $t('投资价格') }}</div>
+                <div class="size60 fontP mt30">
                     <span v-filter="price"></span> USDT</div>
                 <div class="mainBtn mt30" @click="submit">{{ $t('立即投资') }}</div>
             </div>
@@ -80,12 +77,10 @@ import Notice from '@/modules/notice/components/index.vue'
 import { routerPush } from '@/router';
 import { ref } from 'vue';
 import { getConfig, updateUserInfo } from '@/api/common';
-import { getSign } from '@/dapp';
-import { SignType } from '@/config/dapp';
 import { createOrder } from '@/api/order';
 import { showSuccessToast } from 'vant';
 import { useDapp } from '@/hooks/useCommon';
-import Plasma from '@/components/VueBits/Plasma.vue';
+// import Plasma from '@/components/VueBits/Plasma.vue';
 import { t } from '@/locale';
 
 const { userInfo } = useDapp()
@@ -96,9 +91,7 @@ const price = ref()
 getConfig().then((res: any) => price.value = res.order_price)
 
 const submit = async () => {
-    const signInfo = await getSign(SignType.Order)
-    if (!signInfo) return
-    createOrder(signInfo).then(() => {
+    createOrder({}).then(() => {
         showSuccessToast(t('投资成功'))
         updateUserInfo()
     })
@@ -128,8 +121,10 @@ const submit = async () => {
 }
 
 .top {
-    min-height: 800px;
-    padding: 60px 30px 0 30px;
+    height: 800px;
+    background-image: url("@/assets/home/8.webp");
+    background-size: 100% 100%;
+    padding: 240px 30px 0 30px;
     .title{
         padding: 0 30px;
         height: 100px;
@@ -142,21 +137,25 @@ const submit = async () => {
         background-color: #D9D9D9;
     }
     .name{
-        color: #FFFFFF;
+        background: linear-gradient(to right, #00D8FF, #FFFFFF, #D400FF);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
     }
     .topTag{
         display: inline-block;
         padding: 10px 30px;
         border-radius: 26px;
-        background: linear-gradient(to right, #F9E0B7, #E8B373);
-        color: #000000;
+        background: #FFFFFF1A;
+        color: #FFFFFF;
     }
 }
 
 .homeNotice {
     height: 88px;
     padding: 0 30px;
-    border: 1px solid rgba($color: #FFFFFF, $alpha: 0.4);
+    background-color: #FFFFFF1A;
 }
 
 .tag{
@@ -169,11 +168,11 @@ const submit = async () => {
 .card {
     padding: 96px 30px 40px 30px;
     border-radius: 4px;
-    background-color: #1A1A1A;
+    background-color: #FFFFFF1A;
     position: relative;
 
     .price{
-        background: linear-gradient(to right, #F9E0B7, #E8B373);
+        background: linear-gradient(to right, #00D8FF, #D400FF);
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -183,13 +182,12 @@ const submit = async () => {
     .titleBox{
         width: 680px;
         height: 100px;
-        background: linear-gradient(to right, #F9E0B7, #E8B373);
+        background: linear-gradient(to right, #00D8FF, #D400FF);
         padding: 0 30px;
         position: absolute;
         top: -44px;
         left: -20px;
         z-index: 1;
-        color: #000000;
     }
 }
 

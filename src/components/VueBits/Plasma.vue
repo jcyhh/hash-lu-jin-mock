@@ -12,7 +12,7 @@ interface PlasmaProps {
 }
 
 const props = withDefaults(defineProps<PlasmaProps>(), {
-  color: '#E8B373',
+  color: '#D400FF',
   speed: 1,
   direction: 'forward',
   scale: 1.5,

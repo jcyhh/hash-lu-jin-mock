@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { getToken, getAddress, delToken, getRef, setAddress, setToken } from '../config/storage'
+import { getToken, delToken } from '../config/storage'
 
 import httpConfig from '../config/http'
 import { getHeaderLang } from '../locale'
@@ -8,10 +8,10 @@ import { getHeaderLang } from '../locale'
 import { closeToast, showLoadingToast, showToast } from 'vant';
 import { router } from '@/router';
 import { useDappStore } from '@/store';
-import { homePath, SignType } from '@/config/dapp';
+// import { homePath, SignType } from '@/config/dapp';
 import { loginPath } from '@/config/path'
-import { getSign } from '@/dapp';
-import { updateUserInfo } from '@/api/common';
+// import { getSign } from '@/dapp';
+// import { updateUserInfo } from '@/api/common';
 
 const service = axios.create({
     baseURL: import.meta.env.VITE_BASE_URL,
@@ -26,7 +26,8 @@ service.interceptors.request.use(
             config.headers['Content-Type'] = "application/json; charset=UTF-8"
         }
         config.headers[httpConfig.tokenKey] = httpConfig.tokenBearer + getToken()
-        if(httpConfig.addressKey)config.headers[httpConfig.addressKey] = getAddress()
+        // 演示项目不再发送钱包地址请求头。
+        // if(httpConfig.addressKey)config.headers[httpConfig.addressKey] = getAddress()
         if(httpConfig.langKey)config.headers[httpConfig.langKey] = getHeaderLang()
         return config
     },
@@ -44,17 +45,16 @@ service.interceptors.response.use(
         return response.data
     },
     error => {
-        const code = error.status
-        if (code == 401) {
-            // 登录失效
-            logout()
-            return Promise.reject(new Error(error.response.data || 'Error'))
-        } else {
-            if (error.response.data) {
-                showToast(error.response.data)
-            }
-            return Promise.reject(new Error(error.response.data || 'Error'))
-        }
+        const status = error.response?.status
+        const data = error.response?.data
+        const message = typeof data === 'string' && data
+            ? data
+            : error.code === 'ECONNABORTED' ? '请求超时，请稍后重试' : '请求失败，请检查网络后重试'
+        const isAuthRequest = /^\/api\/auth\/(login|register)$/.test(error.config?.url || '')
+        // 登录失败保留当前表单；业务接口的 401 才清理登录状态。
+        if (status === 401 && !isAuthRequest) logout()
+        if (!isAuthRequest) showToast(message)
+        return Promise.reject(new Error(message))
     }
 )
 
@@ -110,41 +110,50 @@ export const upload = () => {
     })
 }
 
-let isLogining:boolean = false
+// let isLogining:boolean = false
+//
+// // 退出登录
+// export function logout(){
+//     if(isLogining)return
+//     isLogining = true
+//     const useStore = useDappStore()
+//     useStore.address = ''
+//     useStore.userInfo = null
+//     delToken()
+//     router.push(loginPath)
+//     login()
+// }
+//
+// // 登录
+// export async function login(){
+//     if(router.currentRoute.value.path != loginPath)router.push(loginPath)
+//     const cuurentAddress = getAddress()
+//     const signInfo = await getSign(SignType.Login)
+//     if(signInfo){
+//         post('/api/auth/login',{
+//             address: cuurentAddress,
+//             ref: getRef(),
+//             ...signInfo
+//         }).then((res:any)=>{
+//             const useStore = useDappStore()
+//             useStore.address = cuurentAddress
+//             setAddress(cuurentAddress)
+//             setToken(res.token)
+//             updateUserInfo()
+//             setTimeout(() => {
+//                 router.replace(homePath)
+//             }, 1000);
+//         }).finally(()=>isLogining = false)
+//     }else{
+//         isLogining = false
+//     }
+// }
 
-// 退出登录
-export function logout(){
-    if(isLogining)return
-    isLogining = true
+// 账号登录失效后仅回到登录页，不触发钱包签名或登录接口。
+export function logout() {
     const useStore = useDappStore()
     useStore.address = ''
     useStore.userInfo = null
     delToken()
-    router.push(loginPath)
-    login()
-}
-
-// 登录
-export async function login(){
-    if(router.currentRoute.value.path != loginPath)router.push(loginPath)
-    const cuurentAddress = getAddress()
-    const signInfo = await getSign(SignType.Login)
-    if(signInfo){
-        post('/api/auth/login',{
-            address: cuurentAddress,
-            ref: getRef(),
-            ...signInfo
-        }).then((res:any)=>{
-            const useStore = useDappStore()
-            useStore.address = cuurentAddress
-            setAddress(cuurentAddress)
-            setToken(res.token)
-            updateUserInfo()
-            setTimeout(() => {
-                router.replace(homePath)
-            }, 1000);
-        }).finally(()=>isLogining = false)
-    }else{
-        isLogining = false
-    }
+    router.replace(loginPath)
 }

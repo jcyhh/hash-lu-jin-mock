@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import routes from "./modules";
 import { publicPath } from '@/config'
+import { getToken } from '@/config/storage'
+import { homePath, loginPath } from '@/config/path'
 
 export const router = createRouter({
     history: createWebHistory(publicPath),
@@ -8,6 +10,13 @@ export const router = createRouter({
     scrollBehavior(){
         return { top: 0 }
     }
+})
+
+// 登录、注册页面无需钱包环境；其余页面必须有 token。
+router.beforeEach((to) => {
+    const isAuthPage = to.path === loginPath || to.path === '/register'
+    if (!getToken() && !isAuthPage) return loginPath
+    if (getToken() && isAuthPage) return homePath
 })
 
 // 跳转

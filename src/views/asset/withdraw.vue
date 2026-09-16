@@ -36,9 +36,9 @@
 </template>
 
 <script setup lang="ts">
-import { updateUserInfo } from '@/api/common';
+// import { updateUserInfo } from '@/api/common';
 import { getWithdrawFee } from '@/api/order';
-import { claim } from '@/dapp/biz';
+// import { claim } from '@/dapp/biz';
 import { useDapp } from '@/hooks/useCommon';
 import { t } from '@/locale';
 import { showToast } from 'vant';
@@ -58,9 +58,9 @@ const tips = ref()
 
 const submit = async () => {
     if(!amount.value)return showToast(t('请输入提币金额'))
-    await claim(amount.value)
-    updateUserInfo()
-    amount.value = ''
+//     await claim(amount.value)
+//     updateUserInfo()
+//     amount.value = ''
 }
 
 // const openpop = () => {
