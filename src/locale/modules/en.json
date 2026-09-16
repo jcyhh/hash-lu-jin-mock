@@ -157,5 +157,7 @@
     "刷新": "Refresh",
     "加载失败，点击重试": "Loading failed, retry",
     "加载更多": "Load more",
-    "提交": "Submit"
+    "提交": "Submit",
+    "到账地址": "Receiving address",
+    "请输入到账地址": "Enter receiving address"
 }

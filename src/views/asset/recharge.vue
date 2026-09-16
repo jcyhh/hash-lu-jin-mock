@@ -8,7 +8,7 @@
         </div>
         <div class="mainCard size28 flex jb ac mt30">
             <div>{{ $t('充值链') }}</div>
-            <div>BEP20</div>
+            <div>TRC20</div>
         </div>
 
         <div class="flex jc mt100">

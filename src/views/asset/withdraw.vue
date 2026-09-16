@@ -8,7 +8,7 @@
         </div>
         <div class="mainCard size28 flex jb ac mt30">
             <div>{{ $t('充值链') }}</div>
-            <div>BEP20</div>
+            <div>TRC20</div>
         </div>
         <div class="mainCard size28 flex jb ac mt30">
             <div>{{ $t('手续费') }}</div>
@@ -24,7 +24,12 @@
             <div class="size24 bold mainColor ml30" @click="amount=userInfo?.balance">{{ $t('全部') }}</div>
         </div>
         
-        <div class="mainBtn mt60" v-scale v-delay="{fun:submit}">{{ $t('提币') }}</div>
+        <div class="size28 mt40">{{ $t('到账地址') }}</div>
+        <div class="mainCard mt30 flex ac">
+            <input type="text" v-model="address" :placeholder="$t('请输入到账地址')" :aria-label="$t('到账地址')" autocomplete="off" autocapitalize="none" spellcheck="false" class="flex1 size28">
+        </div>
+
+        <button type="button" class="mainBtn mt60 submit" :disabled="submitting" @click="submit">{{ $t(submitting ? '提交中...' : '提币') }}</button>
 
     </div>
 
@@ -36,31 +41,45 @@
 </template>
 
 <script setup lang="ts">
-// import { updateUserInfo } from '@/api/common';
+import { updateUserInfo, withdraw } from '@/api/common';
 import { getWithdrawFee } from '@/api/order';
 // import { claim } from '@/dapp/biz';
 import { useDapp } from '@/hooks/useCommon';
 import { t } from '@/locale';
-import { showToast } from 'vant';
+import { showToast, showSuccessToast } from 'vant';
 import { ref } from 'vue';
 
 const { userInfo } = useDapp()
 
-const amount = ref()
+const amount = ref<string | number>('')
+const address = ref('')
+const submitting = ref(false)
 
 const fee = ref()
 
 const show = ref(false)
 
-getWithdrawFee().then((res:any)=>fee.value=res.fee)
+getWithdrawFee().then((res:any)=>fee.value=res.fee).catch(() => {})
+updateUserInfo()
 
 const tips = ref()
 
 const submit = async () => {
-    if(!amount.value)return showToast(t('请输入提币金额'))
-//     await claim(amount.value)
-//     updateUserInfo()
-//     amount.value = ''
+    if (submitting.value) return
+    if (amount.value == null || String(amount.value).trim() === '') return showToast(t('请输入提币金额'))
+    if (!address.value.trim()) return showToast(t('请输入到账地址'))
+    submitting.value = true
+    try {
+        await withdraw({ amount: String(amount.value), address: address.value.trim(), ccy: 'balance' })
+        amount.value = ''
+        address.value = ''
+        showSuccessToast(t('提交成功，等待审核'))
+        updateUserInfo()
+    } catch {
+        // 公共请求层展示后端错误，保留表单内容以便重试。
+    } finally {
+        submitting.value = false
+    }
 }
 
 // const openpop = () => {
@@ -83,6 +102,8 @@ const submit = async () => {
 </script>
 
 <style lang="scss" scoped>
+.submit { border: 0; color: #FFFFFF; cursor: pointer; }
+.submit:disabled { opacity: 0.6; cursor: wait; }
 .card{
     border: 1px solid #FFFFFF;
     background-color: #0A0E17;
