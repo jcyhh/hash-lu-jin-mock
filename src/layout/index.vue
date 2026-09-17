@@ -56,11 +56,10 @@ import { showToast } from 'vant';
 import menus from '@/router/modules/menu'
 import { homePath } from '@/config/path';
 import { useDapp } from '@/hooks/useCommon';
-import { initAddress } from '@/utils';
 
 // const appStore = useAppStore()
 
-const { address } = useDapp()
+const { userInfo } = useDapp()
 
 const route = useRoute();
 
@@ -81,7 +80,7 @@ const jump = (path: string) => {
     }, 300);
 }
 
-const openLink = () => location.href = `https://chat.happyboundless.com/chat/index?noCanClose=1&token=16f4fd92c8e0c070300428ce32490bda&nickName=${initAddress(address.value)}`
+const openLink = () => location.href = `https://chat.happyboundless.com/chat/index?noCanClose=1&token=83674770d06a504965912370eaf73a8f&nickName=${encodeURIComponent(userInfo.value?.nickname || '')}`
 
 const onLogoClick = () => {
     if (show.value) {
